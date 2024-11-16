@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTF Write-Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b137f8492f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="microchoft.css">
+</head>
+<body>
+
+   
+   
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="escritura">Microchoft</h1>
+        <p class="escritura">Maquina Principiante de la plataforma <a href="https://thehackerslabs.com/microchoft/">TheHackerLabs</a></p>
+        <i class="fa-brands fa-windows"></i>
+    </section>
+    
+    <section class="writeup">
+        <h2>Introducción</h2>
+        <p>Este write-up describe cómo abordamos el desafío de CTF X. En este desafío, tuvimos que explotar una vulnerabilidad en el servidor para obtener la bandera (flag).</p>
+    
+        <h2>Paso 1: Reconocimiento</h2>
+        <div class="grid">
+            <div class="grid-item">
+                <p>El primer paso fue realizar un escaneo de puertos en el servidor para encontrar servicios expuestos, como vemos encontramos varios puertos abiertos, y vemos que es un windows 7 Home basic, y que el puerto 445 esta abiero. Por lo que podremos explotar la vulnerabilidad <strong>EternalBlue</strong></p>
+                <img src="" alt="">
+                <p>El comando que hemos usado es el siguiente:</p>
+                <pre><code>nmap -p- -sS -sC -sV --min-rate 5000 -n -vvv -Pn [IP] -oN all_ports</code></pre>
+            </div>
+            <div class="grid-item">
+                <img src="recon_image.png" alt="Reconocimiento de puertos">
+            </div>
+        </div>
+    
+        
+        <div class="grid">
+            <h2>Paso 2: Explotación</h2>
+            <div class="grid-item">
+                <p>En este caso usaremos metasploit para explotar la vulnerabilidad <strong>EternalBLue</strong></p>
+                <p>Buscaremos Eternalblue en metasploit y configuraremos las opciones, en este caso el RHOSTS, la ip de la victima.</p>
+                <pre><code>search Eternalblue</code></pre>
+                <pre><code>set RHOSTS [IP]</code></pre>
+                <img src="" alt="">
+                
+            </div>
+            <div class="grid-item">
+                <img src="exploit_image.png" alt="Explotación del servicio SSH">
+            </div>
+        </div>
+    
+        <h2>Paso 3: Escalada de privilegios</h2>
+        <div class="grid">
+            <div class="grid-item">
+                <p>En este caso no nos hara falta escalar privilegios, ya que al explotar esta vulnerabilidad nos da privilegios elevados en el sistema</p>
+                
+            </div>
+            <div class="grid-item">
+                <img src="privilege_escalation.png" alt="Escalada de privilegios">
+            </div>
+        </div>
+    
+        <h2>Paso 4: Obtención de la bandera</h2>
+        <div class="grid">
+            <div class="grid-item">
+                <p>Finalmente podremos ver la user.txt y la admin.txt.txt</p>
+                
+            </div>
+            <div class="grid-item">
+                <img src="flag_image.png" alt="Bandera encontrada">
+            </div>
+        </div>
+    
+        <h2>Conclusión</h2>
+        <p>Este write-up demuestra cómo resolver el desafío X usando herramientas comunes en el ámbito de CTF. Asegúrate de practicar estas técnicas en entornos controlados antes de enfrentarte a desafíos más difíciles.</p>
+    </section>
+    
