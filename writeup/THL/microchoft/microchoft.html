@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTF Write-Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b137f8492f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="microchoft.css">
+</head>
+<body>
+
+   
+   
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="escritura">Microchoft</h1>
+        <a href="/index.html">
+            <button>Inicio</button>
+        </a>
+        <a href="https://thehackerslabs.com/microchoft/">
+            <img class="tomate" src="/writeup/THL/microchoft/img/microchof.jpg" alt="logo tomate">
+        </a>
+        <img class="tomate" src="/writeup/microchoft/microchof.jpg" alt="">
+        <p class="escritura">Maquina Principiante de la plataforma <a href="https://thehackerslabs.com/microchoft/">TheHackerLabs</a></p>
+        <i class="fa-brands fa-windows"></i>
+    </section>
+    
+    <section class="writeup">
+        <h2>Introducción</h2>
+        <p>Este write-up veremos cómo explotar una máquina Windows de la plataforma TheHackerLabs.</p>
+    
+        <h2>Paso 1: Reconocimiento</h2>
+        <div class="grid">
+            <div class="grid-item">
+                <p>El primer paso fue realizar un escaneo de puertos en el servidor para encontrar servicios expuestos.</strong></p>
+                <img class="img_puertos" src="/writeup/THL/microchoft/img/escaneo.png" alt="Reconocimiento de puertos">
+                <p>El comando que hemos usado es el siguiente:</p>
+                <pre><code>nmap -p- -sS -sC -sV --min-rate 5000 -n -vvv -Pn 192.168.1.79 -oN all_ports</code></pre>
+                <br>
+                <p>Si usamos un comando de Nmap para escanear los puertos y buscar alguna vulnerabilidad veremos que el puerto 445 es vulnerable ya que la máquina es un Windows 7 Home Basic.</p>
+                <img class=img_vulns src="/writeup/THL/microchoft/img/escaneo_vuln.png" alt="">
+                <pre><code>nmap --script="vuln" 192.168.1.79</code></pre>
+            </div>
+            <div class="grid-item">
+                
+            </div>
+        </div>
+    
+        
+        <div class="grid">
+            <h2>Paso 2: Explotación</h2>
+            <div class="grid-item">
+                <p>En este caso usaremos metasploit para explotar la vulnerabilidad <strong>EternalBLue</strong></p>
+                <p>Buscaremos Eternalblue en metasploit y configuraremos las opciones, en este caso el RHOSTS, la IP víctima.</p>
+                <pre><code>search Eternalblue</code></pre>
+                <br>
+                <pre><code>set RHOSTS 192.168.1.79</code></pre>
+                <img class=img_eternal src="/writeup/THL/microchoft/img/eternalblue.png" alt="">
+                
+            </div>
+            
+        </div>
+    
+        <h2>Paso 3: Escalada de privilegios</h2>
+        <div class="grid">
+            <div class="grid-item">
+                <p>En este caso no nos será necesario escalar privilegios, ya que al explotar esta vulnerabilidad nos da privilegios elevados en el sistema</p>
+                
+            </div>
+            <div class="grid-item">
+                <img class="img_permisos" src="/writeup/THL/microchoft/img/permisos.png" alt="Escalada de privilegios">
+            </div>
+        </div>
+    
+        <h2>Paso 4: Obtención de la bandera</h2>
+        <div class="grid">
+            <div class="grid-item">
+                <p>Finalmente podremos ver los archivos user.txt y la admin.txt.txt</p>
+                
+            </div>
+            <div class="grid-item">
+                <h3>User Flag:</h3>
+                <img class="img_user" src="/writeup/THL/microchoft/img/user_flag.png" alt="Bandera encontrada">
+                <h3>Admin Flag:</h3>
+                <img class="img_admin" src="/writeup/THL/microchoft/img/admin_flag.png" alt="">
+            </div>
+        </div>
+    
+        <h2>Conclusión</h2>
+        <p>El write-up muestra cómo explotar la vulnerabilidad EternalBlue en un Windows 7 Home Basic. Se identifica el puerto 445 como vulnerable con Nmap, se usa Metasploit para explotarlo y acceder con privilegios elevados. Finalmente, se obtienen las banderas user.txt y admin.txt sin necesidad de escalar privilegios.</p>
+    </section>
+    

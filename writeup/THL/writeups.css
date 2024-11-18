@@ -1,0 +1,221 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #2F3036, #6D8A96);
+    color: #F0F0F0;
+    line-height: 1.6;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+/* Header */
+header {
+    background-color: #434550;
+    margin-top: 30px;
+    color: white;
+    padding: 1.5em 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: white;
+    ;
+}
+
+/* Estilo de la lista de writeups */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.writeups-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    justify-items: center;
+}
+
+/* Estilo de cada writeup */
+/* Estilo de cada writeup */
+.writeup {
+    background-color: #434550; /* Gris más claro */
+    color: #F0F0F0; /* Texto blanco suave */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+    max-width: 100%; /* Ocupa el ancho completo disponible */
+    height: 400px; /* Altura fija para el rectángulo */
+    text-align: center;
+    padding: 20px;
+    position: relative; /* Necesario para que el icono se posicione dentro del contenedor */
+}
+
+.writeup:hover {
+    transform: translateY(-10px);
+}
+
+.writeup h2 {
+    font-size: 2.5em;
+    
+    color: #6D8A96; /* Azul claro */
+}
+
+.writeup h2 a {
+    color: #F0F0F0;
+    text-decoration: none;
+}
+
+.writeup h2 a:hover {
+    color: #6D8A96;
+}
+
+/* Descripción de cada writeup */
+.writeup p {
+  font-size: 20px;
+  font-weight: 400;
+  text-align: justify;
+  float: left;
+  text-justify: inter-word;
+  hyphens: auto;
+  position: relative;
+  z-index: 2;
+  left: 400px;
+  top: 80px;
+  max-width: 600px;
+
+  
+}
+
+
+/* Imagen dentro del writeup */
+.writeup img {
+    width: 300px;
+    height: 300px; /* Ajusta la imagen para que ocupe solo una parte del rectángulo */
+    border-radius: 8px;
+    margin-top: -105px;
+    margin-right: 800px;
+    margin-bottom: 600px;
+}
+
+
+
+.writeup i {
+    font-size: 3em; /* Tamaño grande para el ícono */
+    color: #6D8A96; /* Color del ícono */
+    position: absolute; /* Hace que el icono esté en una posición absoluta */
+    top: 20px; /* Lo posiciona 20px desde la parte superior */
+    right: 20px; /* Lo posiciona 20px desde el borde derecho */
+    z-index: 10; /* Asegura que el ícono quede encima de otros elementos */
+}
+
+/* Footer */
+footer {
+    background-color: #6D8A96; /* Azul claro */
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+footer p {
+    font-size: 1em;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    header {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .writeup {
+        padding: 15px;
+        height: 350px; /* Ajustar la altura para pantallas más pequeñas */
+    }
+
+    .writeup h2 {
+        font-size: 1.6rem;
+    }
+
+    .writeup p {
+        font-size: 1rem;
+    }
+}
+
+
+.menu {
+    display: flex;
+    width: 35%;
+    justify-content: space-around;
+  }
+  
+  .menu li {
+    list-style: none;
+    position: relative; /* Necesario para el submenú */
+  }
+  
+  .menu a {
+    color: #F0F0F0;
+    text-decoration: none;
+    padding: 10px 20px;
+  }
+  
+  .menu .activa {
+    color: #6D8A96; /* Azul claro para la opción activa */
+    border-bottom: 2px solid #6D8A96; /* Línea debajo de la opción activa */
+  }
+  
+  .menu a:hover {
+    background-color: #59676A;
+    color: white;
+    transition: ease-in .4s;
+  }
+  
+  .submenu {
+    display: none;
+    position: absolute;
+    background-color: #434550;
+    list-style-type: none;
+    padding: 20px 0;
+    margin: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    z-index: 1;
+    right: 0;  /* Alinea el submenú a la derecha */
+}
+
+.submenu li {
+    width: 200px;
+  }
+  
+  .submenu li a {
+    color: #F0F0F0;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    transition: background-color 0.3s ease;
+  }
+
+.submenu li a:hover {
+    background-color: #59676A;
+    color: white;
+}
+
+/* Mostrar el submenú cuando el ratón pasa por encima de Write ups */
+.dropdown:hover .submenu {
+    display: block;
+}

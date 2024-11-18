@@ -122,16 +122,18 @@ html {
 
 .menu li {
   list-style: none;
+  position: relative; /* Necesario para el submenú */
 }
 
 .menu a {
-  color: #F0F0F0; /* Texto claro */
+  color: #F0F0F0;
   text-decoration: none;
   padding: 10px 20px;
 }
 
 .menu .activa {
   color: #6D8A96; /* Azul claro para la opción activa */
+  border-bottom: 2px solid #6D8A96; /* Línea debajo de la opción activa */
 }
 
 .menu a:hover {
@@ -349,6 +351,67 @@ span {
 
 .social_network a {
   color: inherit;
+}
+
+.menu {
+  display: flex;
+  width: 35%;
+  justify-content: space-around;
+}
+
+.menu li {
+  list-style: none;
+  position: relative; /* Necesario para el submenú */
+}
+
+.menu a {
+  color: #F0F0F0;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
+.menu .activa {
+  color: #6D8A96;
+}
+
+.menu a:hover {
+  background-color: #59676A;
+  color: white;
+  transition: ease-in .4s;
+}
+
+/* Estilos para el submenú */
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: #434550;
+  list-style-type: none;
+  padding: 10px 0;
+  margin: 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.submenu li {
+  width: 200px;
+}
+
+.submenu li a {
+  color: #F0F0F0;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: block;
+}
+
+.submenu li a:hover {
+  background-color: #59676A;
+  color: white;
+}
+
+/* Mostrar el submenú cuando el ratón pasa por encima de Write ups */
+.dropdown:hover .submenu {
+  display: block;
 }
 
 
