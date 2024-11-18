@@ -19,9 +19,9 @@
             <button>Inicio</button>
         </a>
         <a href="https://thehackerslabs.com/microchoft/">
-            <img class="tomate" src="/writeup/THL/microchoft/img/microchof.jpg" alt="logo tomate">
+            <img class="tomate" src="img/microchof.jpg" alt="logo tomate">
         </a>
-        <img class="tomate" src="/writeup/microchoft/microchof.jpg" alt="">
+        <img class="tomate" src="img/microchof.jpg" alt="">
         <p class="escritura">Maquina Principiante de la plataforma <a href="https://thehackerslabs.com/microchoft/">TheHackerLabs</a></p>
         <i class="fa-brands fa-windows"></i>
     </section>
@@ -34,12 +34,12 @@
         <div class="grid">
             <div class="grid-item">
                 <p>El primer paso fue realizar un escaneo de puertos en el servidor para encontrar servicios expuestos.</strong></p>
-                <img class="img_puertos" src="/writeup/THL/microchoft/img/escaneo.png" alt="Reconocimiento de puertos">
+                <img class="img_puertos" src="img/escaneo.png" alt="Reconocimiento de puertos">
                 <p>El comando que hemos usado es el siguiente:</p>
                 <pre><code>nmap -p- -sS -sC -sV --min-rate 5000 -n -vvv -Pn 192.168.1.79 -oN all_ports</code></pre>
                 <br>
                 <p>Si usamos un comando de Nmap para escanear los puertos y buscar alguna vulnerabilidad veremos que el puerto 445 es vulnerable ya que la máquina es un Windows 7 Home Basic.</p>
-                <img class=img_vulns src="/writeup/THL/microchoft/img/escaneo_vuln.png" alt="">
+                <img class=img_vulns src="img/escaneo_vuln.png" alt="">
                 <pre><code>nmap --script="vuln" 192.168.1.79</code></pre>
             </div>
             <div class="grid-item">
@@ -56,7 +56,7 @@
                 <pre><code>search Eternalblue</code></pre>
                 <br>
                 <pre><code>set RHOSTS 192.168.1.79</code></pre>
-                <img class=img_eternal src="/writeup/THL/microchoft/img/eternalblue.png" alt="">
+                <img class=img_eternal src="img/eternalblue.png" alt="">
                 
             </div>
             
@@ -69,7 +69,7 @@
                 
             </div>
             <div class="grid-item">
-                <img class="img_permisos" src="/writeup/THL/microchoft/img/permisos.png" alt="Escalada de privilegios">
+                <img class="img_permisos" src="img/permisos.png" alt="Escalada de privilegios">
             </div>
         </div>
     
@@ -81,9 +81,9 @@
             </div>
             <div class="grid-item">
                 <h3>User Flag:</h3>
-                <img class="img_user" src="/writeup/THL/microchoft/img/user_flag.png" alt="Bandera encontrada">
+                <img class="img_user" src="img/user_flag.png" alt="Bandera encontrada">
                 <h3>Admin Flag:</h3>
-                <img class="img_admin" src="/writeup/THL/microchoft/img/admin_flag.png" alt="">
+                <img class="img_admin" src="img/admin_flag.png" alt="">
             </div>
         </div>
     
